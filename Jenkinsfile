@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage("checkout"){
 	   steps{
-	   git 'https://github.com/finloge/IAM.git'
+	   sh 'https://github.com/finloge/IAM.git'
 	   }
 	                  }
         stage('Setup Postgresh SqlDB') {
