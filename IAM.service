@@ -1,0 +1,17 @@
+[Unit]
+Description=management daemon
+Requires=IAM.socket
+After=network.target
+
+[Service]
+User=jenkins
+Group=www-data
+WorkingDirectory=/var/lib/jenkins/workspace/IAM
+ExecStart=/var/lib/jenkins/workspace/IAM/env/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/management.sock \
+          configuration.wsgi.application
+
+[Install]
+WantedBy=multi-user.target
