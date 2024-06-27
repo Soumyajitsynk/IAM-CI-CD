@@ -3,8 +3,7 @@ pipeline {
     stages {
          stage("checkout"){
 	   steps{
-	   sh 'https://github.com/finloge/IAM.git'
-	   }
+                git branch: 'main', url: 'https://github.com/Soumyajitsynk/IAM-CI-CD.git'	   }
 	                  }
         stage('Setup Postgresh SqlDB') {
             steps {
